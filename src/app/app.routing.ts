@@ -10,6 +10,7 @@ export const routes: Routes = [
      children: [
         { path: '', redirectTo: 'login', pathMatch: 'full' },
         { path: 'login', loadChildren: './login/login.module#LoginModule', canActivate: [AuthGuard] },
+        { path: 'register', loadChildren: './register/register.module#RegisterModule', canActivate: [AuthGuard] },
         { path: 'home', loadChildren: './home/home.module#HomeModule', resolve: { data: UserResolver} }
     ]}
     

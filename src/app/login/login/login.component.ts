@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-
+  errorMessage: string = '';
   constructor(public authService: AuthService,
     private router: Router,
     private fb: FormBuilder) { }
@@ -41,13 +41,21 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  tryTwitterLogin(){
+    this.authService.doTwitterLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    })
+  }
+
+
   tryLogin(value){
     this.authService.doLogin(value)
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/home']);
     }, err => {
       console.log(err);
-      // this.errorMessage = err.message;
+      this.errorMessage = err.message;
     })
   }
 }
