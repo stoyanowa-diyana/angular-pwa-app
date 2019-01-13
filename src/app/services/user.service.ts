@@ -16,9 +16,7 @@ export class UserService {
  
    getCurrentUser(){
      return new Promise<any>((resolve, reject) => {
-      debugger;
        var user = firebase.auth().onAuthStateChanged(function(user){
-        debugger;
          if (user) {
            resolve(user);
          } else {
@@ -30,7 +28,6 @@ export class UserService {
  
    updateCurrentUser(value){
      return new Promise<any>((resolve, reject) => {
-       debugger;
        var user = firebase.auth().currentUser;
        user.updateProfile({
          displayName: value.name,

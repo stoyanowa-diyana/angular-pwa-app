@@ -54,7 +54,6 @@ export class RegisterComponent implements OnInit {
   }
 
   tryRegister(value){
-    debugger;
     this.authService.doRegister(value)
     .then(res => {
       console.log(res);
