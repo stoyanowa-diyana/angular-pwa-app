@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { RouterModule} from '@angular/router';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
+import { MainLayoutModule } from './layout/layout.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CustomMaterialModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MainLayoutModule
   ],
-  declarations: [MainLayoutComponent, HeaderComponent, FooterComponent],
+  declarations: [],
   exports: [
     CustomMaterialModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MainLayoutModule,
   ]
 })
 export class SharedModule { }
